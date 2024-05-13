@@ -21,7 +21,7 @@ JDK,IDEA,Maven,Mysql,Navicat
 在Build and run 中选择Java1.8，com.shanzhu.hospital.BackendApplication
 
 # 访问地址：
-http://localhost:9282/#/login
+http://8.130.95.239/
 
 # 前端:
 ## 准备环境：
