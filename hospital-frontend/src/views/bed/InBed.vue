@@ -17,7 +17,9 @@
             <el-table size="small" :data="orderData" stripe border>
                 <el-table-column label="挂号单号" prop="oId"/>
                 <el-table-column label="患者id" prop="pId"/>
+                <el-table-column label="患者姓名" prop="pName"/>
                 <el-table-column label="医生id" prop="dId"/>
+                <el-table-column label="医生姓名" prop="dName"/>
                 <el-table-column label="挂号时间"  prop="oStart"/>
                 <el-table-column label="结束时间" prop="oEnd"/>
                 <el-table-column label="挂号状态" prop="oState">

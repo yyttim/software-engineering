@@ -1,5 +1,6 @@
 package com.hospital.entity.po;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.Version;
@@ -53,4 +54,17 @@ public class Bed {
     @Version
     private Integer version;
 
+    /**
+     * 医生名称
+     */
+    @JsonProperty("dName")
+    @TableField(exist = false)
+    private String dName;
+
+    /**
+     * 患者名称
+     */
+    @JsonProperty("pName")
+    @TableField(exist = false)
+    private String pName;
 }

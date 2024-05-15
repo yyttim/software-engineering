@@ -3,8 +3,8 @@
         <el-card>
             <el-table :data="orderData" size="small" stripe style="width: 100%" border>
                 <el-table-column prop="oId" label="挂号单号"width="75px"/>
-                <el-table-column prop="pId"label="本人id" width="75px"/>
-                <el-table-column prop="pName" label="姓名"width="75px"/>
+                <el-table-column prop="pId"label="患者id" width="75px"/>
+                <el-table-column prop="pName" label="患者姓名"width="75px"/>
                 <el-table-column prop="dId" label="医生id"width="75px"/>
                 <el-table-column prop="dName" label="医生姓名" width="75px"/>
 

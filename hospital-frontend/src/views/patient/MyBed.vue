@@ -3,8 +3,10 @@
         <el-card>
             <el-table size="small" :data="bedData" border stripe>
                 <el-table-column label="床号" prop="bId" v-model="bedData.bId"></el-table-column>
-                <el-table-column label="用户id" prop="pId" v-model="bedData.pId"></el-table-column>
+                <el-table-column label="患者id" prop="pId" v-model="bedData.pId"></el-table-column>
+                <el-table-column label="患者姓名" prop="pName" v-model="bedData.pName"></el-table-column>
                 <el-table-column label="医生id" prop="dId" v-model="bedData.dId"></el-table-column>
+                <el-table-column label="医生姓名" prop="dName" v-model="bedData.dName"></el-table-column>
                 <el-table-column label="原因" prop="bReason" v-model="bedData.bReason"></el-table-column>
                 <el-table-column label="开始时间" prop="bStart" v-model="bedData.bStart"></el-table-column>
             </el-table>

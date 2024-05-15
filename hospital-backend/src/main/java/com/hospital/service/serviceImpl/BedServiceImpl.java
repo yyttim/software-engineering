@@ -7,12 +7,18 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hospital.entity.po.Bed;
+import com.hospital.entity.po.Doctor;
+import com.hospital.entity.po.Orders;
+import com.hospital.entity.po.Patient;
 import com.hospital.entity.vo.BedPageVo;
 import com.hospital.mapper.BedMapper;
+import com.hospital.mapper.DoctorUserMapper;
+import com.hospital.mapper.PatientUserMapper;
 import com.hospital.service.BedService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -23,6 +29,13 @@ import java.util.List;
 @Service("BedService")
 @RequiredArgsConstructor
 public class BedServiceImpl extends ServiceImpl<BedMapper, Bed> implements BedService {
+
+    @Resource
+    private PatientUserMapper patientMapper;
+
+    @Resource
+    private DoctorUserMapper doctorMapper;
+
 
     /**
      * 查询空床位
@@ -41,7 +54,14 @@ public class BedServiceImpl extends ServiceImpl<BedMapper, Bed> implements BedSe
      * @return 床位
      */
     public List<Bed> findBedByPid(Integer pId) {
-        return lambdaQuery().eq(Bed::getPId, pId).list();
+        List<Bed> list = lambdaQuery().eq(Bed::getPId, pId).list();
+        for (int i = 0; i < list.size(); i++) {
+            Patient p = patientMapper.selectById(list.get(i).getPId());
+            list.get(i).setPName(p.getPName());
+            Doctor d = doctorMapper.selectById(list.get(i).getDId());
+            list.get(i).setDName(d.getDName());
+        }
+        return list;
     }
 
     /**
@@ -66,6 +86,17 @@ public class BedServiceImpl extends ServiceImpl<BedMapper, Bed> implements BedSe
         //组装结果
         BedPageVo pageVo = new BedPageVo();
         pageVo.populatePage(iPage);
+
+        List<Bed> list = pageVo.getBeds();
+        for (int i = 0; i < list.size(); i++) {
+            Patient p = patientMapper.selectById(list.get(i).getPId());
+            if (p == null) {
+                continue;
+            }
+            list.get(i).setPName(p.getPName());
+            Doctor d = doctorMapper.selectById(list.get(i).getDId());
+            list.get(i).setDName(d.getDName());
+        }
 
         return pageVo;
     }

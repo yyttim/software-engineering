@@ -80,7 +80,6 @@
 
     <select id="orderSection" resultMap="orderSectionMap">
         SELECT d.d_section,count(o.d_id) as countSection from orders o,doctor_user d where o.d_id=d.d_id
-        AND o_start BETWEEN #{startTime} and #{endTime}
         GROUP BY d.d_section
     </select>
 

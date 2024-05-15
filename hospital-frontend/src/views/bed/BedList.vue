@@ -36,7 +36,9 @@
             <el-table :data="bedData" size="small" stripe style="width: 100%" border>
                 <el-table-column label="床号" prop="bId"/>
                 <el-table-column label="患者id" prop="pId"/>
+                <el-table-column label="患者姓名" prop="pName"/>
                 <el-table-column label="医生id" prop="dId"/>
+                <el-table-column label="医生姓名" prop="dName"/>
                 <el-table-column label="开始时间" prop="bStart"/>
                 <el-table-column label="申请理由"prop="bReason"/>
                 <el-table-column label="状态" prop="bState">

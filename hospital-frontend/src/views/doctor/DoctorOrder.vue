@@ -16,8 +16,10 @@
             </el-row>
             <el-table size="small" :data="orderData" stripe style="width: 100%" border>
                 <el-table-column prop="oId" label="挂号单号" width="80px"/>
-                <el-table-column prop="dId" label="本人id" width="80px"/>
+                <el-table-column prop="dId" label="医生id" width="80px"/>
+                <el-table-column prop="dName" label="医生姓名" width="80px"/>
                 <el-table-column prop="pId" label="患者id" width="80px"/>
+                <el-table-column prop="pName" label="患者姓名" width="80px"/>
                 <el-table-column prop="oStart" label="挂号时间"width="190px"/>
                 <el-table-column prop="oEnd" label="结束时间" width="150px"/>
                 <el-table-column prop="oRecord" label="病因" width="200px"/>

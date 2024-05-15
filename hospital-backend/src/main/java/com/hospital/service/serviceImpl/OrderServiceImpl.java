@@ -10,15 +10,20 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hospital.entity.po.Arrange;
+import com.hospital.entity.po.Doctor;
 import com.hospital.entity.po.Orders;
+import com.hospital.entity.po.Patient;
 import com.hospital.entity.vo.OrderArrangeVo;
 import com.hospital.entity.vo.OrdersPageVo;
 import com.hospital.mapper.ArrangeMapper;
+import com.hospital.mapper.DoctorUserMapper;
 import com.hospital.mapper.OrderMapper;
+import com.hospital.mapper.PatientUserMapper;
 import com.hospital.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -30,6 +35,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
     private final OrderMapper orderMapper;
 
     private final ArrangeMapper arrangeMapper;
+
+    @Resource
+    private PatientUserMapper patientMapper;
+
+    @Resource
+    private DoctorUserMapper doctorMapper;
 
     /**
      * 查询挂号信息 - 分页
@@ -54,6 +65,14 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
         //组装分页结果
         OrdersPageVo pageVo = new OrdersPageVo();
         pageVo.populatePage(iPage);
+
+        List<Orders> list = pageVo.getOrders();
+        for (int i = 0; i < list.size(); i++) {
+            Patient p = patientMapper.selectById(list.get(i).getPId());
+            list.get(i).setPName(p.getPName());
+            Doctor d = doctorMapper.selectById(list.get(i).getDId());
+            list.get(i).setDName(d.getDName());
+        }
 
         return pageVo;
     }
@@ -207,6 +226,14 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
         OrdersPageVo pageVo = new OrdersPageVo();
         pageVo.populatePage(iPage);
 
+        List<Orders> list = pageVo.getOrders();
+        for (int i = 0; i < list.size(); i++) {
+            Patient p = patientMapper.selectById(list.get(i).getPId());
+            list.get(i).setPName(p.getPName());
+            Doctor d = doctorMapper.selectById(list.get(i).getDId());
+            list.get(i).setDName(d.getDName());
+        }
+
         return pageVo;
     }
 
@@ -240,6 +267,14 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
         //组装结果
         OrdersPageVo pageVo = new OrdersPageVo();
         pageVo.populatePage(iPage);
+
+        List<Orders> list = pageVo.getOrders();
+        for (int i = 0; i < list.size(); i++) {
+            Patient p = patientMapper.selectById(list.get(i).getPId());
+            list.get(i).setPName(p.getPName());
+            Doctor d = doctorMapper.selectById(list.get(i).getDId());
+            list.get(i).setDName(d.getDName());
+        }
 
         return pageVo;
     }
