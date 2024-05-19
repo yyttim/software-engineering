@@ -270,11 +270,18 @@
                     </el-input>
                 </el-form-item>
                 <el-form-item label="状态" label-width="80px" prop="dState">
-                    <el-input
-                        v-model="modifyForm.dState"
-                        autocomplete="off"
-                        disabled
-                    ></el-input>
+                  <el-select
+                      v-model="modifyForm.dState"
+                      placeholder="请选择状态"
+                  >
+                    <el-option
+                        v-for="state in states"
+                        :key="state.key"
+                        :label="state.label"
+                        :value="state.value"
+                    >
+                    </el-option>
+                  </el-select>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -355,6 +362,18 @@ export default {
                 "皮肤病科",
                 "口腔科",
             ],
+            states: [
+                {
+                  key: '在职',
+                  label: '在职（1）',
+                  value: '1'
+                },
+                {
+                  key: '离职',
+                  label: '离职（0）',
+                  value: '0'
+                }
+            ],
             rules: {
                 dId: [
                     { required: true, message: "请输入账号", trigger: "blur" },
@@ -430,6 +449,7 @@ export default {
                                 dCard: this.modifyForm.dCard,
                                 dPrice: this.modifyForm.dPrice,
                                 dIntroduction: this.modifyForm.dIntroduction,
+                                dState: this.modifyForm.dState
                             },
                         })
                         .then((res) => {

@@ -6,7 +6,7 @@
         <div class="font_words">
           <span @click="menuClick('adminLayout')">
             <img src="../../assets/logo.jpg" style="width: 35px;position: relative; top: 8px;right: 6px"/>
-             <span style="color: rebeccapurple;font-size: 20px">医院管理系统</span>
+             <span style="color: rebeccapurple;font-size: 20px">医疗管理系统</span>
           </span>
         </div>
 
@@ -74,7 +74,7 @@
 
           <el-submenu index="sub-menu5">
             <template slot="title">
-              <span style="font-size: 18px;color: #2b5d88">医院管理</span>
+              <span style="font-size: 18px;color: #2b5d88">医疗管理</span>
             </template>
             <el-menu-item index="diseaseList" @click="menuClick('diseaseList')">
               <i class="iconfont icon-disease-list" style="font-size: 18px;"> 疾病症状管理</i>

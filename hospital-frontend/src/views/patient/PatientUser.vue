@@ -7,7 +7,7 @@
         <div class="font_words">
           <span @click="menuClick('adminLayout')">
             <img src="../../assets/logo.jpg" style="width: 35px;position: relative; top: 8px;right: 6px"/>
-             <span style="color: rebeccapurple;font-size: 20px">医院管理系统</span>
+             <span style="color: rebeccapurple;font-size: 20px">医疗管理系统</span>
           </span>
         </div>
 

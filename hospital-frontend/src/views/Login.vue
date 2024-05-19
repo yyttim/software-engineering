@@ -10,7 +10,7 @@
             <!--登录标题-->
             <i style=" top: 40px; font-size: 28px; left: 70px;position: absolute;"class="iconfont">
               <img src="../assets/logo.jpg" style="width: 50px;position: relative; top: 13px;right: 6px">
-              <span style="color: #e75c09;" >登录医院管理系统</span>
+              <span style="color: #e75c09;" >登录医疗管理系统</span>
             </i>
 
             <!--登录表单-->
