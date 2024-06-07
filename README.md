@@ -7,7 +7,7 @@
 http://8.130.95.239/
 
 ### 域名
-se.yuntianyang.com
+<se.yuntianyang.com>
 
 ### 测试账号（初始密码123456）
 患者：2000  
