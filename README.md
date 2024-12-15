@@ -50,8 +50,9 @@ http://se.yuntianyang.com/
    ```bash
    npm config set registry https://registry.npmmirror.com
 3. Then run:
+   ```bash
    npm run dev  
-4. Once the startup is complete, it will display the relevant login URL.
+5. Once the startup is complete, it will display the relevant login URL.
 
 ## Local Access Address
 http://localhost:9282/#/login
